@@ -1,0 +1,13 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+filldb.py	../filldb.py	1;"	kind:file	line:1
+lines	../filldb.py	/^    lines = file.read().split('\\n')$/;"	kind:variable	line:9
+pairs	../filldb.py	/^        pairs = line.split(' ')$/;"	kind:variable	line:11
+f	../filldb.py	/^            f = codecs.open("word_tag_pair.xml", mode="a",encoding="utf-8")$/;"	kind:variable	line:13
+word_tag_pair	../filldb.py	/^            word_tag_pair = pair.split('\/')$/;"	kind:variable	line:14
+word	../filldb.py	/^            word=word_tag_pair[0]$/;"	kind:variable	line:15
+tag	../filldb.py	/^            tag=word_tag_pair[1]$/;"	kind:variable	line:16
