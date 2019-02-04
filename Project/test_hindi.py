@@ -1,7 +1,7 @@
 #! /usr/bin/python3
 import process
 
-file_to_write=open("test_hindi_4.txt","w")
+file_to_write=open("test_hindi_9.txt","w")
 with open('hindi_test_sentences.txt') as file:
     lines = file.readlines()
     for line in lines:

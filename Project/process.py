@@ -6,17 +6,29 @@
 
 def noun_rules(pos):
     for i in range(0,len(pos)):
-        if pos[i]=='N_NN' and (pos[i-1] == 'N_NNP' or pos[i+1] == 'N_NNP'):
-            pos[i] = 'N_NNP'
+        # if pos[i]=='N_NN' and (pos[i-1] == 'N_NNP' or pos[i+1] == 'N_NNP'):
+        #     pos[i] = 'N_NNP'
+        if pos[i]=='DM_DMD':
+            if pos[i-1]=='PSP' and pos[i+1]=='PSP':
+                pos[i]='PR_PRP'
     return pos
 
 def verb_rules(pos):
-    print(len(pos))
     for i in range(0,len(pos)):
         # print(i)
-        if pos[i] == 'V_VM':
+        if pos[i]=='V_VM':
             if pos[i-1] == 'V_VAUX' or pos[i-1] == 'V_VM':
                 pos[i] = 'V_VAUX'
+        if pos[i] == 'V_VAUX':
+            # if pos[i-1] == 'V_VM' and pos[i+1] == 'CC_CCS':
+            #     pos[i]='V_VM'
+            # if pos[i-1] == 'JJ' and pos[i+1] == 'CC_CCD':
+            #     pos[i] = 'V_VM' 
+            if pos[i-1] == 'N_NST' and pos[i+1] == 'RD_PUNC':
+                pos[i] = 'V_VM'
+            if pos[i-1] == 'DM_DMD' and pos[i+1] == 'CC_CCS':
+                pos[i] = 'V_VM' 
+                pos[i-1] = 'PR_PRP' 
         # if pos[i-1]=='V_VM' and pos[i+1]=='V_VAUX':
         #     pos[i]='V_VAUX'
 
@@ -51,9 +63,8 @@ def search(line):
         if temp_pos == None:
             temp_pos = tryassign(word)
         pos.append(temp_pos)
-    print(pos)
     pos = verb_rules(pos)
-    # pos = noun_rules(pos)
+    pos = noun_rules(pos)
     return pos
 
 
